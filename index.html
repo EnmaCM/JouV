@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables</title>
+  <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+  
+  <article>
+    <div class="calculator">
+      <div class="cal-screen" id="cal-screen"></div>
+      <ul class="numbers cal-buttons">
+        <li onclick="input('(')">(</li> 
+        <li onclick="input(')')">)</li>
+        <li onclick="input('^','power')">^</li>
+        <li onclick="input(null,'delete-all'); red('CE')" id="CE">CE</li>
+        <li onclick="input(1)" id="1">1</li> 
+        <li onclick="input(2)" id="2">2</li>
+        <li onclick="input(3)" id="3">3</li>
+        <li onclick="input(4)" id="4">4</li>
+        <li onclick="input(5)" id="5">5</li>
+        <li onclick="input(6)" id="6">6</li>
+        <li onclick="input(7)" id="7">7</li>
+        <li onclick="input(8)" id="8">8</li>
+        <li onclick="input(9)" id="9">9</li>
+        <li onclick="input(0)" id="10">0</li>
+        <li onclick="input('.')">.</li>
+        <li class = "cal-iqual" onclick="input(null,'equal')">=</li>
+      </ul>
+      <ul class="mathSymbols cal-buttons">
+        <li class="backspace cal-buttons" id="backspace" onclick="input(null,'backspace'); red('backspace')"><--</li>
+        <li class="cal-divideSimbol" onclick="input('/','divide')">%</li>
+        <li class="cal-minusSumbol" onclick="input('-','subtraction')">-</li>
+        <li class="cal-plusSimbol" onclick="input('+','add')">+</li>
+        <li class="cal-multiplySimbol" onclick="input('*','multiply')">x</li>
+        <!-- <li class = "cal-iqual">=</li> -->
+      </ul>
+    </div>
+  </article>
+  <script src="config.js"></script>
+  <script src="calculator/devLogs/logs.js"></script>
+  <script src="calculator/tools/sort.js"></script>
+  <script src="calculator/tools/replaceStr.js"></script>
+  <script src="calculator/tools/copyStr.js"></script>
+  <script src="error/error-handler.js"></script>
+  <script src="render/click.js"></script>
+  <script src="input.js"></script>
+  <script src="calculator/buffer.js"></script>
+  <script src="history/history.js"></script>
+  <script src="render/output.js"></script>
+  <script src="calculator/operations.js"></script>
+  <script src="calculator/find/find.js"></script>
+  <script src="calculator/find/find-expression.js"></script>
+  <script src="calculator/controller.js"></script>
+  <script src="calculator/tools/checkFormat.js"></script>
+  <script src="calculator/adjust/put-simbols-to-numbers.js"></script>
+  <script>
+    function red(element) {
+      let d = document.getElementById(element);
+      let originalColor = d.style.backgroundColor;
+      d.style.backgroundColor = "rgb(247, 60, 60)";
+      setTimeout(()=> d.style.backgroundColor = originalColor,100);
+    }
+  </script>
+
+
+</body>
+</html>
