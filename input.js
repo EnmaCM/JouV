@@ -1,11 +1,6 @@
 "use strict";
 let buffer = ''; //Store all the expression
 
-development(false);// always declare before the custom Console
-customConsole.development = false;
-let logInput = new customConsole();
-logInput.isOn = true;
- 
 
 
 function input(value,...rest){

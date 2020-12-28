@@ -1,10 +1,5 @@
 "use strict";
 
-let logFindExp = new customConsole();
-let logToNumber = new customConsole();
-
-logFindExp.isOn = true;
-logToNumber.isOn = true;
 
 function findExpression(operatorIndex,buffer,symbolsPos) {
   //sim is abreviation of Simbols

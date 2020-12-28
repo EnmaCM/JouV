@@ -1,6 +1,4 @@
 "use strict";
-let logBuffer = new customConsole();
-logBuffer.isOn = true;
 //20 element on screen max
 
 

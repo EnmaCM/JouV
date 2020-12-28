@@ -1,12 +1,6 @@
 "use strict";
 let bufferHistory = new $History();
 
-let logController = new customConsole();
-let logSolveExp = new customConsole();
-let logResolveExp = new customConsole();
-let logJoinStr= new customConsole();
-let logDoMath = new customConsole();
-
 
 
 
