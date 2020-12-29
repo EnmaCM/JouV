@@ -25,23 +25,27 @@ class customConsole{
   #error = console.error;
   properties = ["log","warn","table","trace","debug","count","countReset","group","endGroup"];
 
-  constructor(id){
-    if(id) {
-      this.id = id;
+  constructor(isOn){
+
+    if(isOn === undefined || isOn === true) {
+
+      this.log = this.#log;
+      this.warn = this.#warn;
+    this.table =  this.#table;
+      this.trace = this.#trace;
+      this.debug = this.#debug;
+      this.count = this.#count;
+      this.endCount = this.#endCount;
+      this.group = this.#group;
+      this.endGroup = this.#endGroup;
+      this.error = this.#error;
     }
-    else{
-      this.id = null;
+    else if(isOn === false){
+      for(let element of this.properties){
+        this[element] = (...rest)=>null;
+        
+      } 
     }
-    this.log = this.#log;
-    this.warn = this.#warn;
-   this.table =  this.#table;
-    this.trace = this.#trace;
-    this.debug = this.#debug;
-    this.count = this.#count;
-    this.endCount = this.#endCount;
-    this.group = this.#group;
-    this.endGroup = this.#endGroup;
-    this.error = this.#error;
   
   }
   set isOn(value){
@@ -50,13 +54,14 @@ class customConsole{
           
       this.log = this.#log;
       this.warn = this.#warn;
-     this.table =  this.#table;
+      this.table =  this.#table;
       this.trace = this.#trace;
       this.debug = this.#debug;
       this.count = this.#count;
       this.endCount = this.#endCount;
       this.group = this.#group;
       this.endGroup = this.#endGroup;
+      this.error = this.#error;
     }
     else if(value === false){
       for(let element of this.properties){

@@ -4,8 +4,8 @@
 
 let config = {
   development : false,
-  logInput : true, 
-  logBuffer : true, 
+  logInput : false, 
+  logBuffer : false, 
   logController : true, 
   logSolveExp : true, 
   logResolveExp : true, 
@@ -24,15 +24,15 @@ let config = {
 //keep the order as in "config",please note the "s" at the end
 let customsConsoles = { 
 
-  logInput: ()=>null,
-  logBuffer: ()=>null ,
-  logController: ()=>null,
-  logSolveExp: ()=>null,
-  logResolveExp: ()=>null,
-  logJoinStr: ()=>null,
-  logDoMath: ()=>null,
-  logFindExp: ()=>null,
-  logToNumber: ()=>null
+  logInput: null,
+  logBuffer: null ,
+  logController: null,
+  logSolveExp: null,
+  logResolveExp: null,
+  logJoinStr: null,
+  logDoMath: null,
+  logFindExp: null,
+  logToNumber: null
 };
 
 
@@ -44,6 +44,9 @@ for(let element in config) {
 
   if(config[element] && element !== "development") {
     customsConsoles[element] = new customConsole();
+
+  } else if(element !== "development" && config[element] === false){
+    customsConsoles[element] = new customConsole(false);
   }
 }
 
