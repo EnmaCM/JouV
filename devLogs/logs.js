@@ -23,7 +23,7 @@ class customConsole{
   #group = console.group;
   #endGroup = console.groupEnd;
   #error = console.error;
-  properties = ["log","warn","table","trace","debug","count","countReset","group","endGroup"];
+  properties = ["log","warn","table","trace","debug","count","countReset","group","endGroup","error"];
 
   constructor(isOn){
 
@@ -66,8 +66,6 @@ class customConsole{
     else if(value === false){
       for(let element of this.properties){
         this[element] = (...rest)=>null;
-        this.error = this.#error;
-
       }
     }
      
