@@ -63,7 +63,7 @@ function controller(buffer) {
 
   // }
   //solveMathExpression(bufferCopy)
-  console.error("<-----------------Start-------------->");
+  logController.error("<-----------------Start-------------->");
 
   if (parentheses.length === 0 || parentheses.length === undefined) {
     bufferCopy = removeFirstCharStr(bufferCopy);
@@ -79,7 +79,7 @@ function controller(buffer) {
 
 
 
-  console.error("<-------Start paren------>")
+  logController.error("<-------Start paren------>")
   for (let i = parentheses.length; i > 0; i--) {
 
     parentheses = findParentheses(bufferCopy).found;

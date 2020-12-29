@@ -7,6 +7,7 @@ function development(value){
     console.warn = (...rest)=>null;
     console.table = (...rest)=>null;
     console.trace = (...rest)=>null;
+    console.error = (...rest)=>null;
   }
 }
 
@@ -21,6 +22,7 @@ class customConsole{
   #endCount = console.countReset;
   #group = console.group;
   #endGroup = console.groupEnd;
+  #error = console.error;
   properties = ["log","warn","table","trace","debug","count","countReset","group","endGroup"];
 
   constructor(id){
@@ -39,6 +41,7 @@ class customConsole{
     this.endCount = this.#endCount;
     this.group = this.#group;
     this.endGroup = this.#endGroup;
+    this.error = this.#error;
   
   }
   set isOn(value){
@@ -58,6 +61,8 @@ class customConsole{
     else if(value === false){
       for(let element of this.properties){
         this[element] = (...rest)=>null;
+        this.error = this.#error;
+
       }
     }
      
