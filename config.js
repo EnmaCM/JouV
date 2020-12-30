@@ -6,7 +6,7 @@ let config = {
   development : true,
   logInput : false, 
   logBuffer : false, 
-  logController : false, 
+  logController : true, 
   logSolveExp : false, 
   logResolveExp : false, 
   logJoinStr : false,

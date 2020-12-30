@@ -20,10 +20,6 @@ function controller(buffer) {
   }
 
 
-  if (bufferCopy[0] !== "+" && bufferCopy[0] !== "-") {
-    bufferCopy = prependPlusSimbol(bufferCopy);
-  }
-
   logController.warn("Buffer $History: controller()");
   logController.table(bufferHistory.buffers);
   let parentheses = findParentheses(bufferCopy).found;
@@ -34,40 +30,13 @@ function controller(buffer) {
   logController.warn("sorted!");
   logController.table(parentheses);
   logController.log("length : ", parentheses.length);
-  let bufferCopyCopy = bufferCopy;
 
 
-  // for(let i = parentheses.length; i > 0; i--) {
-
-  //   logController.warn("for loop");
-  //   logController.log(bufferCopy);
-
-  //   insideParenthesesBuffer =  copyStrFrom(parentheses[i-1].openIndex + 1,parentheses[i-1].closeIndex,bufferCopyCopy);
-  //   logController.log(insideParenthesesBuffer,"insede parentheses");
-
-  //   parenthesesResolved = solveMathExpression(insideParenthesesBuffer,symbols);
-
-  //   logController.warn(parenthesesResolved,"resolved");
-  //   logController.log(parentheses[i-1].openIndex,parentheses[i-1].closeIndex,"paren");
-  //   logController.warn(bufferCopy,"bufferCopy");  
-
-  //   bufferCopy = replaceStr(parentheses[i-1].openIndex,parentheses[i-1].closeIndex + 1,bufferCopy,parenthesesResolved);
-  //   logController.warn(bufferCopy,"bufferCopy");
-
-  //    let resolved = `${parenthesesResolved}`;
-
-  //   if(bufferCopy[1] === "-" || bufferCopy[1] === "+" || bufferCopy[1] === "(") {
-  //      bufferCopy = removeFirstCharStr(bufferCopy);
-  //  }
-  //   logController.warn(bufferCopy,"bufferCopy");
-
-  // }
-  //solveMathExpression(bufferCopy)
   
   logController.error("<-----------------Start-------------->");
 
-  if (parentheses.length === 0 || parentheses.length === undefined) {
-    //bufferCopy = removeFirstCharStr(bufferCopy);
+  if (parentheses.length === 0 || parentheses.length === undefined || true) {
+    
     bufferCopy += ")";
     let temporal = "+(";
     for (let char of bufferCopy) {
@@ -78,10 +47,10 @@ function controller(buffer) {
     parentheses = sortArrByProperty(parentheses, "importance");
   }
 
-
+  let totalAmoutnOfParentheses = parentheses.length;
 
   logController.error("<-------Start paren------>")
-  for (let i = parentheses.length; i > 0; i--) {
+  for (let i = 0; i < totalAmoutnOfParentheses; i++) {
 
     parentheses = findParentheses(bufferCopy).found;
     parentheses = sortArrByProperty(parentheses, "importance");
@@ -95,10 +64,9 @@ function controller(buffer) {
     parenthesesResolved = solveMathExpression(insideParenthesesBuffer, symbols);
 
     logController.warn(parenthesesResolved, "resolved");
-    logController.log(parentheses[i - 1].openIndex, parentheses[i - 1].closeIndex, "paren");
     logController.warn(bufferCopy, "bufferCopy");
 
-    bufferCopy = replaceStr(parentheses[parentheses.length - 1].openIndex - 1, parentheses[parentheses.length - 1].closeIndex + 1, bufferCopy, parenthesesResolved);
+    bufferCopy = replaceStr(parentheses[parentheses.length - 1].openIndex, parentheses[parentheses.length - 1].closeIndex + 1, bufferCopy, parenthesesResolved);
     logController.warn(bufferCopy, "bufferCopy");
 
 
@@ -110,6 +78,9 @@ function controller(buffer) {
 
   }
 
+if(bufferCopy[0] === "+") {
+  bufferCopy = removeFirstCharStr(bufferCopy);
+}
   return bufferCopy;
 }
 
@@ -129,7 +100,6 @@ function solveMathExpression(buffer, symbols) {
     newBuffer = joinStr(result.result, buffer, foundSymbols[i + 1].index + 1);
     logController.warn(newBuffer, "new buffer");
   }
-  //return cleanBuffer(buffer);
   return result.result;
 }
 
@@ -174,11 +144,3 @@ function joinStr(textTojoin, target, fromIndex) {
   logJoinStr.warn(bufferStr, "bufferStr");
   return bufferStr;
 }
-
-
-
-
-
-
-
-

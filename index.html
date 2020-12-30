@@ -57,11 +57,23 @@
   <script src="calculator/tools/checkFormat.js"></script>
   <script src="calculator/adjust/put-simbols-to-numbers.js"></script>
   <script>
+    let funcIsWaiting = false;
+
     function red(element) {
       let d = document.getElementById(element);
-      let originalColor = d.style.backgroundColor;
-      d.style.backgroundColor = "rgb(247, 60, 60)";
-      setTimeout(()=> d.style.backgroundColor = originalColor,100);
+      
+      if(!funcIsWaiting) {
+
+        let originalColor = d.style.backgroundColor;  
+        d.style.backgroundColor = "rgb(247, 60, 60)";
+        funcIsWaiting = true;
+      
+
+        setTimeout(()=> {
+          d.style.backgroundColor = originalColor
+          funcIsWaiting = false;
+        },100);
+    }
     }
   </script>
 
