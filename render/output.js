@@ -1,6 +1,7 @@
 let calScreen = document.getElementById("cal-screen");
 const MAX_ELEMENTS = 20;
 //max Elements on screen 20
+//Use the logOutput object instead of console
 
 function CALC_print(text,...rest) {
 
@@ -10,13 +11,13 @@ function CALC_print(text,...rest) {
     let newStr = "";
     for(let i = text.length - MAX_ELEMENTS; i < text.length; i++){
       newStr += text[i];     
-      console.log("here: " + text[i]);
+      logOutput.log("here: " + text[i]);
     }
     textToShow = newStr;
-    console.warn(newStr,"newStr: CALC_print() : at line 16: cut elements from screen");
+    logOutput.warn(newStr,"newStr: CALC_print() : at line 16: cut elements from screen");
   }
 
-  console.log(text.length,"<------Size of buffer at CALC_print");
+  logOutput.log(text.length,"<------Size of buffer at CALC_print");
 
     calScreen.innerText = textToShow;
     if(rest[1] === true) {

@@ -3,16 +3,17 @@
 /* dont change anything but the boolen if you want to disable or enable a custom console */
 
 let config = {
-  development : false,
+  development : true,
   logInput : false, 
   logBuffer : false, 
-  logController : true, 
-  logSolveExp : true, 
-  logResolveExp : true, 
-  logJoinStr : true,
+  logController : false, 
+  logSolveExp : false, 
+  logResolveExp : false, 
+  logJoinStr : false,
   logDoMath : true, 
   logFindExp : true, 
-  logToNumber : true
+  logToNumber : true,
+  logOutput : false
 }
 
 /*<------Don't touch anything bellow here-------->*/
@@ -32,7 +33,8 @@ let customsConsoles = {
   logJoinStr: null,
   logDoMath: null,
   logFindExp: null,
-  logToNumber: null
+  logToNumber: null,
+  logInput : null
 };
 
 
@@ -60,3 +62,4 @@ let logJoinStr= customsConsoles.logJoinStr;
 let logDoMath = customsConsoles.logDoMath;
 let logFindExp = customsConsoles.logFindExp;
 let logToNumber = customsConsoles.logToNumber;
+let logOutput = customsConsoles.logOutput;

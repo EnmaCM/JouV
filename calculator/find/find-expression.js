@@ -5,17 +5,22 @@ function findExpression(operatorIndex,buffer,symbolsPos) {
   //sim is abreviation of Simbols
 
   let startFirstExpression = symbolsPos[operatorIndex - 1].index;
-  let endSecondExpression = symbolsPos[operatorIndex + 1] != undefined? symbolsPos[operatorIndex + 1].index - 1:
+  let endSecondExpression = symbolsPos[operatorIndex + 1] != undefined ? symbolsPos[operatorIndex + 1].index - 1:
   buffer.length - 1;
 
+  logFindExp.warn(symbolsPos[operatorIndex + 1], "symbol por[operatorIndex + 1]");
+  logFindExp.error(endSecondExpression,"end second Expression");
   logFindExp.warn("findExpression(): symbolPos");
   logFindExp.table(symbolsPos);
 
   if(symbolsPos[operatorIndex] === undefined) {
-    return {err: true,notFound: true,message:"Not any operator: findExpression()"};
+    return {err: true, notFound: true, message:"Not any operator: findExpression()"};
   }
+
   let operator = {index: symbolsPos[operatorIndex].index, character: symbolsPos[operatorIndex].character};
-  logFindExp.log(buffer,"Buffer : findExpression:");
+
+    logFindExp.log(buffer,"Buffer : findExpression:");
+
   return new Expression(startFirstExpression,operator,endSecondExpression);
   }
 
@@ -29,7 +34,9 @@ function findExpression(operatorIndex,buffer,symbolsPos) {
       this.startfirstExpression = startfirstExpression;
       this.operation = operation;
       this.endSecondExpression = endSecondExpression;
+
       console.log("operation",operation);
+      logFindExp.error(endSecondExpression,"<---end second expressions");
     }
 
     get beforeSimbol(){
