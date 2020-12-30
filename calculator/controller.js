@@ -63,10 +63,11 @@ function controller(buffer) {
 
   // }
   //solveMathExpression(bufferCopy)
+  
   logController.error("<-----------------Start-------------->");
 
   if (parentheses.length === 0 || parentheses.length === undefined) {
-    bufferCopy = removeFirstCharStr(bufferCopy);
+    //bufferCopy = removeFirstCharStr(bufferCopy);
     bufferCopy += ")";
     let temporal = "+(";
     for (let char of bufferCopy) {
@@ -141,7 +142,7 @@ function resolveExpression(buffer, simbols) {
     bufferCopy = prependPlusSimbol(bufferCopy);
   }
 
-  let foundSymbols = findSimbols(bufferCopy, simbols);
+  let foundSymbols = findSimbolsOfOperations(bufferCopy, simbols);
   logResolveExp.warn(bufferCopy, "buffer copy : resolveExpressions()");
 
   return { result: doMaths(foundSymbols.found, bufferCopy, 1), foundSymbols: foundSymbols };

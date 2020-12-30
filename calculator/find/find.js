@@ -49,6 +49,10 @@ function findParentheses(buffer) {
   return {found: parentheses,err: false,message: "Found!"};
 }
 
+
+
+
+
 function findSimbols(buffer,simbols){
   let found = [];
    
@@ -67,6 +71,34 @@ function findSimbols(buffer,simbols){
       if(found[0] === undefined) return {notFound:true,message:"Theres not any operator!",found:null};
       return {notFound:false,found:found,message:"al right"};   
 }
+
+
+
+function findSimbolsOfOperations(buffer,simbols) {
+  let found = [];
+   
+  for(let charIndex = 0; charIndex < buffer.length; charIndex++) {
+    
+    for(let char of simbols){
+
+      if(buffer[charIndex] === char) {        
+        if(char === "-" && (buffer[charIndex - 1] === "/" || buffer[charIndex - 1] === "*")) {
+          continue;
+        } else {
+          found.push({character: char,index: charIndex});
+        }
+      } 
+    
+    }
+  }
+  console.warn("findSimbols(): at line 67: found");
+  console.table(found);
+
+  if(found[0] === undefined) return {notFound:true,message:"Theres not any operator!",found:null};
+  return {notFound:false,found:found,message:"al right"};   
+}
+
+
 
 function findFirstSymbol(buffer,listOfSymbols) {
   let found = [];
