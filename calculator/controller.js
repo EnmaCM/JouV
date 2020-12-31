@@ -35,7 +35,7 @@ function controller(buffer) {
   
   logController.error("<-----------------Start-------------->");
 
-  if (parentheses.length === 0 || parentheses.length === undefined || true) {
+  if (bufferCopy[0] !== "(" && bufferCopy[0] !== "+(" && bufferCopy !== "-(") {
     
     bufferCopy += ")";
     let temporal = "+(";
@@ -43,9 +43,10 @@ function controller(buffer) {
       temporal += char;
     }
     bufferCopy = temporal;
+  }
     parentheses = findParentheses(bufferCopy).found;
     parentheses = sortArrByProperty(parentheses, "importance");
-  }
+  
 
   let totalAmoutnOfParentheses = parentheses.length;
 
