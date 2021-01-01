@@ -5,6 +5,7 @@ let bufferHistory = new $History();
 
 
 function controller(buffer) {
+
   let symbols = ["/", "*", "-", "+"];
   let bufferCopy = buffer;
 
@@ -19,6 +20,7 @@ function controller(buffer) {
     bufferHistory.addToHistory(buffer);
   }
 
+  bufferCopy = insertMultiplySymbols(bufferCopy);
 
   logController.warn("Buffer $History: controller()");
   logController.table(bufferHistory.buffers);
@@ -35,7 +37,12 @@ function controller(buffer) {
   
   logController.error("<-----------------Start-------------->");
 
-  if (bufferCopy[0] !== "(" && bufferCopy[0] !== "+(" && bufferCopy !== "-(") {
+  let bufferStart = bufferCopy[0];
+  let bufferEnd = bufferCopy[bufferCopy.length - 1];
+
+  if (bufferStart !== "(" && bufferStart !== "+(" && bufferStart !== "-(" && bufferEnd !== ")" ||
+     (bufferStart === "(" || bufferStart === "+(" || bufferStart === "-(" && bufferEnd !== ")")||
+     (bufferStart !== "(" && bufferStart !== "+(" && bufferStart !== "-(" && bufferEnd === ")") ){
     
     bufferCopy += ")";
     let temporal = "+(";
@@ -140,7 +147,7 @@ function joinStr(textTojoin, target, fromIndex) {
 
   for (let char = fromIndex; char < target.length; char++) {
     bufferStr += target[char];
-    logJoinStr.log(bufferStr, "buffer str")
+    logJoinStr.log(bufferStr, "buffer str");
   }
   logJoinStr.warn(bufferStr, "bufferStr");
   return bufferStr;

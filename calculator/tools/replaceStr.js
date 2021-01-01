@@ -13,11 +13,11 @@ function replaceStr(start,end,buffer,str) {
     newStr += buffer[i];
     logReplaceStr.log(newStr);
   }
-  for(let i = 0; i < theStr.length;i++) {
+  for(let i = 0; i < theStr.length; i++) {
     newStr += theStr[i];
     logReplaceStr.log(newStr);
   }
-  for(let i = end; i < buffer.length;i++) {
+  for(let i = end; i < buffer.length; i++) {
     newStr += buffer[i];
   }
   return newStr;
