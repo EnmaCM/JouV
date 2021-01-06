@@ -124,6 +124,6 @@ article{
 
 
 .cal-screen::selection{
-  color: black;
+  color: rgb(230, 46, 184);
   /* color: rgb(38, 172, 33); */
 }

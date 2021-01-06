@@ -4,6 +4,7 @@ let buffer = ''; //Store all the expression
 
 
 function input(value,...rest){
+
   let bufferCopy = buffer;
   let bufferLength = buffer.length - 1;
 
@@ -36,9 +37,6 @@ function input(value,...rest){
         }
   }
 
-  // if(rest[0] === "delete-all") buffer = show(buffer,value,true,false);
-  // else if(value) buffer = show(buffer,value,false,false);
-  // else if(rest[0] === "backspace") buffer = show(buffer,value,false,true);
     let green = false;
     
     if(rest[0] === "delete-all") buffer = cleanBuffer(buffer);

@@ -50,7 +50,7 @@ function controller(buffer) {
       temporal += char;
     }
     bufferCopy = temporal;
-  }
+  } 
     parentheses = findParentheses(bufferCopy).found;
     parentheses = sortArrByProperty(parentheses, "importance");
   
@@ -79,7 +79,7 @@ function controller(buffer) {
 
 
 
-    if (bufferCopy[1] === "-" || bufferCopy[1] === "+" || bufferCopy[1] === "(") {
+    if ((bufferCopy[1] === "-" || bufferCopy[1] === "+" || bufferCopy[1] === "(" ) && bufferCopy[0] !== "(") {
       bufferCopy = removeFirstCharStr(bufferCopy);
     }
     logController.warn(bufferCopy, "bufferCopy");
@@ -108,7 +108,8 @@ function solveMathExpression(buffer, symbols) {
     newBuffer = joinStr(result.result, buffer, foundSymbols[i + 1].index + 1);
     logController.warn(newBuffer, "new buffer");
   }
-  return result.result;
+  if(result) return result.result;
+  else return buffer;
 }
 
 
