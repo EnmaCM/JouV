@@ -160,9 +160,10 @@ li{
 @media (min-width:1023px) {
 
 .cal-buttons li:hover{
-  background-color: hsla(0, 53%, 20%, 0.342);
+  background-color: hsla(231, 64%, 37%, 0.342);
   color: white;
   cursor: pointer;
+  box-shadow: 0px 0px 5px rgb(211, 22, 211);
 }
 
 
