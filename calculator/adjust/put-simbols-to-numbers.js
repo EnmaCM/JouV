@@ -1,11 +1,7 @@
 "use strict";
 
 function prependPlusSimbol(buffer){
-  let newStr = '+';
-  for(let char of buffer) {
-    newStr += char;
-  }
-  return newStr;
+  return "+" + buffer;
 } 
 
 function removeFirstCharStr(str){

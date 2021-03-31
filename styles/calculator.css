@@ -2,7 +2,8 @@
   box-sizing: border-box;
 }
 body{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight:lighter; 
 }
 li{
   text-decoration: none;
@@ -23,20 +24,22 @@ li{
     article{
       grid-column: 2/3;
       grid-row: 2/3;
-      border: 2px solid rgb(60, 149, 184);
+      /* border: 2px solid rgb(60, 149, 184); */
     }
     .calculator{
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 3rem 1fr;
       gap: 0.5rem;
-      border: 2px solid rgb(60, 149, 184);
+      /* border: 2px solid rgb(60, 149, 184); */
+      /* box-shadow: 0px 0px 4px gray; */
     }
 
     .cal-screen{
       grid-column: 1/3;
       grid-row: 1/1;
-      border: 1px solid black;
+      border: 2px solid rgb(7, 120, 134);
+      box-shadow: 0px 0px 4px rgb(6, 139, 156);
     }
     .numbers{
       grid-column: 1/1 ;
@@ -71,21 +74,24 @@ li{
   article{
     grid-column: 400px;
     grid-row: 2/3;
-    border: 1px solid rgb(60, 149, 184);
+    /* border: 1px solid rgb(60, 149, 184); */
+        box-shadow: 0px 0px 4px gray;
+
   }
   .calculator{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 3rem 1fr;
     gap: 0.5rem;
-    border: 2px solid rgb(60, 149, 184);
+    /* border: 2px solid rgb(60, 149, 184); */
+    box-shadow: 0px 0px 4px gray;
   }
 
   .cal-screen{
     grid-column: 1/3;
     grid-row: 1/1;
-    border: 1px solid black;
-  }
+    border: 2px solid rgb(7, 120, 134);
+    box-shadow: 0px 0px 4px rgb(6, 139, 156);  }
   .numbers{
     grid-column: 1/1 ;
     grid-row: 2/2;
@@ -150,20 +156,24 @@ li{
 
 
 .cal-buttons{
-  border: 2px solid rgb(60, 149, 184);
+  border: 2px solid rgb(167, 173, 175);
+  box-shadow: 0px 0px 4px gray;
 }
 .cal-buttons li{
-  border: 2px solid black;
+  border: 2px solid rgb(100, 100, 100);
+  box-shadow: 0px 0px 4px rgb(22, 22, 22);
   /* padding : 0.1rem; */
   /* padding-left: 0.5rem; */
 }
 @media (min-width:1023px) {
 
 .cal-buttons li:hover{
-  background-color: hsla(231, 64%, 37%, 0.342);
+  background-color: hsla(305, 54%, 35%, 0.568);
+  border-color:  hsla(0, 0%, 17%, 0.315);
   color: white;
   cursor: pointer;
-  box-shadow: 0px 0px 5px rgb(211, 22, 211);
+  box-shadow: 0px 0px 4px hsla(0, 0%, 4%, 0.767);
+
 }
 
 
